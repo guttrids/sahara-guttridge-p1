@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible"
+content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-do</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body class="container">
+    <div class="fixed">
+    <div class="box" id ="heading">
+        <h1 style="color:bisque">
+           
+            <%= today %>
+        </h1>
+    </div>
+    <hr>
+    <div class="box">
+        <% if (tasks.length == 0){%>
+        <p style ="text-align: center;">
+            No Tasks</p>
+            <%} else { %>
+       
+         %> <form action = "/delete" method ="post">
+            <% for(var i=0; i < tasks.length; i++) {%>
+            <div class="item">
+                    <input type="checkbox" name ="checkbox"
+                    value="<%=tasks[i]._id%>"
+                    onchange="this.form.submit()">
+                    <p><%= tasks[i].name%></p>
+            </div>
+            <hr>
+            <%} %>
+        </form> 
+           
+        <%} %>
+            <form class="item" action="/" method="POST">
+                <input type="text" name="newTask"
+                autocomplete="off"
+                placeholder="Add a Task">
+                <button type="submit" name="submit">ADD</button>
+
+            </form>
+    </div>
+</div>
+<div class="flex-item">
+    <div class="box" id ="heading">
+        <h1 style="color:bisque">
+            
+            <%= month %> 
+        
+        </h1>
+    </div>
+    <hr>
+    <div class="box">
+        <% if (tasks.length == 0){%>
+        <p style ="text-align: center;">
+            No Tasks</p>
+            <%} else { %>
+       
+         %> <form action = "/delete" method ="post">
+            <% for(var i=0; i < tasks.length; i++) {%>
+            <div class="item">
+                    <input type="checkbox" name ="checkbox"
+                    value="<%=tasks[i]._id%>"
+                    onchange="this.form.submit()">
+                    <p><%= tasks[i].name%></p>
+            </div>
+            <hr>
+            <%} %>
+        </form> 
+           
+        <%} %>
+            <form class="item" action="//" method="POST">
+                <input type="text" name="newTask"
+                autocomplete="off"
+                placeholder="Add a Task">
+                <button type="submit" name="submit">ADD</button>
+
+            </form>
+    </div>
+</div>
+</body>
+
+</html>
